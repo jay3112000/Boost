@@ -1,0 +1,10 @@
+.styletext{
+    background-color: blueviolet;
+    color: white !important;
+    padding-left: 2rem;
+    padding-right: 2rem;
+ }
+ .box{
+     width: max-content;
+     
+ }

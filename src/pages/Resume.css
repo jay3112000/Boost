@@ -1,0 +1,321 @@
+*{
+    font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  :root{
+      --pcolor: blueviolet;
+  }
+  
+  .logo{
+    width: 16rem;
+  }
+  nav a.nav-link{
+      font-weight: bold;
+      cursor: pointer;
+      color: var(--pcolor) !important;
+      
+  }
+  nav li.nav-item{
+      text-transform: uppercase;
+      
+  }
+  nav i.bi-person-square{
+   font-size: xx-large;
+   color: var(--pcolor);
+  }
+  
+  .navbar-nav > li > a:hover{
+    border-top: 0.1875rem solid var(--pcolor);
+  }
+  .navbar-nav > li > a.active,.navbar-nav > li > a.active:focus{
+    border-top: 0.1875rem solid var(--pcolor);
+  
+  }
+  
+  /*************About Me**************/
+  div img.img-fluid{
+    width: 31rem;
+    
+    border-radius: 100%;
+    border: 6px solid var(--pcolor);
+  }
+  
+  .ibox{
+    display: flex;
+    justify-content: center;
+  }
+  /*************Services**************/
+  .services{
+    text-align: center;
+    padding-bottom: 2rem;
+    background: lightgrey;
+  }
+  .services a.btn-primary{
+     background-color: var(--pcolor);
+     border: none;
+  }
+  .services img.card-img-top{
+    overflow: hidden !important;
+    height: 18.75rem;
+    
+    
+  }
+  @media (max-width:468px) {
+    div img.img-fluid{
+          width: 17rem;
+          
+    }
+    .services img.card-img-top{
+      height: 10rem;
+    }
+  
+  }
+  
+  /************************ EXPERIENCE *********************************/
+  
+  .experience {
+    padding: 0.7rem;
+  }
+  
+  .experience-wrapper {
+    position: relative;
+    padding: 3.125rem 0;
+    overflow: hidden;
+  }
+  
+  .experience h1 {
+    text-transform: uppercase;
+    
+  }
+  
+  .experience-wrapper::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    margin-left: -0.0625rem;
+    width: 0.125rem;
+    height: 100%;
+    background: lightgrey;
+    z-index: 1;
+  }
+  
+  .timeline-block {
+    width: calc(50% + 0.5rem);
+    display: flex;
+    justify-content: space-between;
+    clear: both;
+  }
+  
+  .timeline-block-right {
+    float: right;
+  }
+  
+  .timeline-block-left {
+    float: left;
+    direction: rtl;
+  }
+  
+  
+  .marker {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;;
+    border: 0.3125rem solid var(--primary-dark);
+    background:  var(--pcolor);
+    margin-top: 0.625rem;
+    z-index: 3;
+  }
+  
+  .timeline-content {
+    width: 95%;
+    padding: 0 0.9375rem;
+    color: var(--primary-dark-grey);
+    direction: ltr;
+  }
+  
+  .timeline-content h3 {
+    margin-top: 0.3125rem;
+    color: var(--primary-red);
+    font-weight: 900;
+  }
+  /*************Testimonial**************/
+  .testimonials .container {
+      max-width: 950px;
+     
+  }
+  
+  .testimonials .card {
+      border-radius: 1rem;
+      box-shadow: 0px -10px 0px var(--pcolor);
+      height: 23rem;
+  }
+  
+  @media(max-width:767px) {
+      .testimonials .card {
+          margin: 1rem 0.7rem 1rem;
+          max-width: 80vw
+      }
+  }
+  .testimonials .card-image{
+    width: 10rem;
+    overflow: hidden;
+  }
+  
+  .testimonials img {
+     
+      border-radius: 5rem;
+      
+      
+  }
+  
+  .testimonials .col-md-4 {
+      padding: 0 0.5rem
+  }
+  
+  .testimonials .card-title {
+      font-size: 1rem;
+      margin-bottom: 0;
+      font-weight: bold;
+      
+  }
+  
+  .testimonials .card-text {
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.8rem;
+      color: rgb(82, 81, 81);
+      line-height: 1.4rem
+  }
+  
+  .testimonials .footer {
+      border-top: none;
+      text-align: center;
+      line-height: 1.2rem;
+      
+     
+  }
+  
+  #name {
+      font-size: 0.8rem;
+      font-weight: bold
+  }
+  
+  #position {
+      font-size: 0.7rem
+  }
+  
+  a {
+      color: var(--pcolor);
+      font-weight: bold
+  }
+  
+  .testimonials a:hover {
+      color: var(--pcolor)
+  }
+  
+  
+  
+  /*************Contact**************/
+  .contacts{
+    background:white;
+    padding: 3rem 0;
+  
+  }
+  /*************Inputs**************/
+  .contacts input,.contacts textarea{
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+    border-bottom: 0.12rem solid var(--pcolor);
+    
+    outline: 0 !important;
+    margin-bottom: 1rem;
+  }
+  .contacts input:focus,.contacts textarea:focus{
+    background: transparent;
+    border-bottom: 0.12rem solid var(--pcolor);
+    
+  }
+  .contacts textarea{
+    height: 10rem;
+  }
+  .contacts button{
+    width: 100%;
+    background-color: var(--pcolor);
+    
+  }
+  .contacts .line{
+    position: relative;
+    width: 0;
+    height: 0.125rem;
+    background: var(--pcolor);
+    display: inline-block;
+  }
+  input:focus+.line,textarea:focus+.line{
+    width: 100%;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .error{
+    color: red;
+  }
+  /*------------Footer------------------*/
+  .myfooter {
+    background: var(--pcolor);
+    color: white;
+    padding: 3rem;
+  }
+  
+  .myfooter a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .myfooter a:hover {
+    text-decoration: none;
+    color: whitesmoke;
+    cursor:pointer;
+  }
+  
+  .myfooter p {
+    margin-bottom: 0;
+  }
+  
+  /*------------ MEDIA ------------------*/
+  @media(max-width: 768px) {
+  .experience .container {
+    padding-left: 0;
+  }
+  
+    .experience-wrapper::before {
+      left: 0.5rem;
+      margin-bottom: 1.875rem;
+    }
+    .timeline-block-right {
+      float: none;
+      width: 100%;
+    }
+    
+    .timeline-block-left {
+      float: none;
+      direction: ltr; 
+      width: 100%;
+    }
+  }
+
+  .caraousel-container .container{
+    width: 50rem;
+    
+}
+
+@media(max-width: 768px) {
+    .caraousel-container .container{
+      width: 100%;
+    }
+    .caraousel-container .carousel-control-prev{
+      display: none;
+    }
+    .caraousel-container .carousel-control-next{
+      display: none;
+    }
+}
