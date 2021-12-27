@@ -27,7 +27,7 @@ function Resume() {
 
     const getresume=async()=>{
         try{
-            const response=await axios.get(`http://localhost:3000/api/post/${id}`)
+            const response=await axios.get(`https://boost-main.herokuapp.com/api/post/${id}`)
             console.log(response.data)
             setresumedata(response.data)
             document.documentElement.style.setProperty('--pcolor', response.data.Color);
@@ -82,7 +82,7 @@ function Resume() {
             <div className='row'>
                 <div className='col-lg-6 col-xm-12 '>
                     <div className='ibox'>
-                    <img  src={`http://localhost:3000/images/${resumedata.Profilepic}`} alt='just wait' className="img-fluid  "/>
+                    <img  src={`https://boost-main.herokuapp.com/images/${resumedata.Profilepic}`} alt='just wait' className="img-fluid  "/>
                     </div>
                  
                 </div>
@@ -200,7 +200,7 @@ function Resume() {
         return(
           <div className="carousel-item active" key={index}>
      
-          <img src={`http://localhost:3000/images/${curr}`} className="d-block w-100" alt="..."/>
+          <img src={`https://boost-main.herokuapp.com/images/${curr}`} className="d-block w-100" alt="..."/>
           <div className="carousel-caption d-none d-md-block">
             <h5>TRAVEL GUIDE</h5>
             <p>A guide to all your favourite destinations</p>

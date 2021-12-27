@@ -5,7 +5,7 @@ import { FETCH_FAILURE, FETCH_POSTS, FETCH_SUCCESS, LOGIN_FAILURE, LOGIN_START, 
 export const logincall=async(credentials,dispatch)=>{
     dispatch({type:LOGIN_START})
     try{
-        const response=await axios.post('http://localhost:3000/api/user/login', credentials)
+        const response=await axios.post('https://boost-main.herokuapp.com/api/user/login', credentials)
         dispatch({type : LOGIN_SUCCESS,payload:response.data})
         localStorage.setItem('token',response.data);
         return true
@@ -19,7 +19,7 @@ export const logincall=async(credentials,dispatch)=>{
 export const registercall=async(credentials,dispatch)=>{
     dispatch({type:REGISTER_START})
     try{
-        const response=await axios.post('http://localhost:3000/api/user/register', credentials)
+        const response=await axios.post('https://boost-main.herokuapp.com/api/user/register', credentials)
         dispatch({type : REGISTER_SUCCESS,payload:response.data})
         localStorage.setItem('userid',response.data._id)
         return true
@@ -34,7 +34,7 @@ export const getallposts=async(dispatch)=>{
         dispatch({type:FETCH_POSTS})
     try{
         const userid=localStorage.getItem('userid')
-        const response=await axios.get(`http://localhost:3000/api/post/myposts/all/${userid}`)
+        const response=await axios.get(`https://boost-main.herokuapp.com/api/post/myposts/all/${userid}`)
         console.log(response.data)
         dispatch({type:FETCH_SUCCESS,payload:response.data})
     }
@@ -58,7 +58,7 @@ export const postResume=async({name,email,address,phone,desc,profilepic,color,im
     }
 console.log(pics)
       try {
-        await axios.post("http://localhost:3000/api/upload", imagedata);
+        await axios.post("https://boost-main.herokuapp.com/api/upload", imagedata);
       } catch (err) {
         console.log(err)
       }
@@ -69,7 +69,7 @@ console.log(pics)
         
 
           try {
-            await axios.post("http://localhost:3000/api/upload/profilepic", profileimg);
+            await axios.post("https://boost-main.herokuapp.com/api/upload/profilepic", profileimg);
           } catch (err) {
             console.log(err)
           }
@@ -90,7 +90,7 @@ console.log(pics)
     };
     try{
 
-      const response=await axios.post('http://localhost:3000/api/post', body)
+      const response=await axios.post('https://boost-main.herokuapp.com/api/post', body)
       console.log(response.data)
       dispatch({type:POST_SUCCESS,payload:response.data})
       return true

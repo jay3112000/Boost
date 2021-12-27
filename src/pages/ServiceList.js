@@ -1,7 +1,7 @@
 export const ServiceList=[
 
   {
-      name: 'flutter',
+      name: 'Flutter',
       image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/768px-React-icon.svg.png",
       desc:"Fast and Interactive Apps which are completely Responsive",
   },

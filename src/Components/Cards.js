@@ -59,7 +59,7 @@ export default function ResumeReviewCard(props) {
       <CardMedia
         component="img"
         height="230"
-        image={`http://localhost:3000/images/${props.data.Profilepic}`}
+        image={`https://boost-main.herokuapp.com/images/${props.data.Profilepic}`}
         alt="Paella dish"
       />
       </Link>

@@ -25,7 +25,7 @@ function Edit() {
     
     const getresume=async()=>{
         try{
-            const response=await axios.get(`http://localhost:3000/api/post/${id}`)
+            const response=await axios.get(`https://boost-main.herokuapp.com/api/post/${id}`)
             console.log(response.data)
             setresumedata(response.data)
             setname(response.data.Name)
@@ -123,7 +123,7 @@ function Edit() {
             }
       console.log(pics)
               try {
-                await axios.post("http://localhost:3000/api/upload", imagedata);
+                await axios.post("https://boost-main.herokuapp.com/api/upload", imagedata);
               } catch (err) {
                 console.log(err)
               }
@@ -136,7 +136,7 @@ function Edit() {
                 
         
                   try {
-                    await axios.post("http://localhost:3000/api/upload/profilepic", profileimg);
+                    await axios.post("https://boost-main.herokuapp.com/api/upload/profilepic", profileimg);
                   } catch (err) {
                     console.log(err)
                   }
@@ -155,7 +155,7 @@ function Edit() {
               Images:pics
             };
             try{
-              const response=await axios.put(`http://localhost:3000/api/post/${id}`, body)
+              const response=await axios.put(`https://boost-main.herokuapp.com/api/post/${id}`, body)
               console.log(response.data)
           }catch(err){
              console.log(err)
@@ -184,7 +184,7 @@ function Edit() {
                 maxWidth: '30rem',
             overflow:'hidden',
       }}>
-                      <img  className='profileimage' src={profilepic!=null?`http://localhost:3000/images/${profilepic}`:'https://cdn2.vectorstock.com/i/1000x1000/48/06/image-preview-icon-picture-placeholder-vector-31284806.jpg'}/>
+                      <img  className='profileimage' src={profilepic!=null?`https://boost-main.herokuapp.com/images/${profilepic}`:'https://cdn2.vectorstock.com/i/1000x1000/48/06/image-preview-icon-picture-placeholder-vector-31284806.jpg'}/>
                   </Container>
                   <div class="">
                 <i class="fas fa-lock"></i>
