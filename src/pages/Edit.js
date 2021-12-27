@@ -140,9 +140,9 @@ function Edit() {
                   } catch (err) {
                     console.log(err)
                   }
-      
+            const userid=localStorage.getItem('userid')
             const body={
-              userId:"61b07e2c58aa2128f8fa5527",
+              userId: userid,
               Name: name,
               Phone:phone,
               Address: address,
@@ -196,7 +196,7 @@ function Edit() {
                 <div >
 
 
-                <form  class="sign-in-form">
+                <form  class="form-register">
                 <Typography sx={{color:'#228B22' , fontSize:{xs:20,sm:30},fontFamily:'sans-serif'}}>
                      Personal Details
                  </Typography>
@@ -353,7 +353,7 @@ function Edit() {
                 <input type="file" accept='.png, .jpeg, .jpg'  onChange={e => {setimages(e.target.files)}} multiple/>
               </div>
                
-              <button   class="btn"  type="button" onClick={Editdata} >Submit</button>
+              <button   class="btn-register mt-4"  type="button" onClick={Editdata} >Submit</button>
              
             </form>
            
