@@ -87,7 +87,7 @@ function Resume() {
                  
                 </div>
                 <div className='col-lg-6 col-sm-12 my-2'>
-                <ExampleOne/>
+                <ExampleOne  name={resumedata.Name} color={resumedata.Color}/>
                 <h1 className="display-4">About me</h1>
                  <p>
                 {resumedata.Desc}
