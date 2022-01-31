@@ -131,8 +131,8 @@ function Resume() {
                                   }
                                 })
                               }
-                             
-                              <a href={curr.link} className="btn btn-primary">See Project</a>
+                        
+                              <a href={curr.Link} className="btn btn-primary">See Project</a>
                           </div>
                           </div>
                           </div>
