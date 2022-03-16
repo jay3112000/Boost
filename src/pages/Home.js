@@ -27,13 +27,7 @@ function Home() {
         <div>
            
             <MiniDrawer/>
-            <Widget
-            initPayload={"/get_started"}
-            socketUrl={"http://34.134.152.107"}
-            socketPath={"/socket.io/"}
-            customData={{"language": "en"}} // arbitrary custom data. Stay minimal as this will be added to the socket
-            title={"Title"}
-          />
+          
             {
                 ResumeLists!=null?
                 <Container disableGutters={true} maxWidth={false} sx={{

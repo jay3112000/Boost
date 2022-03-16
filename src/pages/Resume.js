@@ -7,7 +7,7 @@ import ExampleOne from '../Components/AnimatedText'
 import emailjs from 'emailjs-com';
 import { useForm } from "react-hook-form";
 import Modal from 'react-bootstrap/Modal'
-
+import Widget from 'rasa-webchat';
 import './Resume.css'
 import { ServiceList } from './ServiceList';
 function Resume() {
@@ -336,6 +336,14 @@ function Resume() {
       </div>
     </div>
              </Container>
+             <Widget
+            initPayload={"/get_started"}
+            customData={{"resumeId" : id}}
+            socketUrl={"http://localhost:5005"}
+            socketPath={"/socket.io/"}
+            customData={{"language": "en"}} // arbitrary custom data. Stay minimal as this will be added to the socket
+            title={"Title"}
+          />
         </div>
         
     )

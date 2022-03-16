@@ -18,6 +18,7 @@ function Create() {
   const [address,setaddress]=useState('')
   const [phone,setphone]=useState('')
   const [desc,setdesc]=useState('')
+  const [linkedIn,setlinkedIn]=useState('')
   const [profilepic,setprofilepic]=useState('')
   const [preview,setpreview]=useState(null)
   const [color,setcolor]=useState('#1569a8')
@@ -29,6 +30,9 @@ function Create() {
       
       Name:'',
       Degree:'',
+      Cgpa:'',
+      Board:'',
+      Major:'',
       Startdate:'',
       Enddate:''
     },
@@ -38,8 +42,15 @@ function Create() {
     {
       Cname:'',
       Title:'',
+      Description:'',
       Startdate:'',
-      Enddate:''
+      Enddate:'',
+    }
+  ])
+  const [activities,setactivities]=useState([
+    {
+      Name:'',
+      Description:'',
     }
   ])
   const [services,setservices]=useState([
@@ -71,6 +82,14 @@ function Create() {
     setworkexp(newArr2)// copying the old datas array
     
   }
+  const handelactivities=(vname,value,index)=>{
+    let newArr2 = [...activities];
+
+    newArr2[index][vname] = value;
+    console.log(newArr2) 
+    setactivities(newArr2)// copying the old datas array
+    
+  }
   
   const handelservices=(vname,value,index)=>{
     let newArr3 = [...services];
@@ -80,14 +99,14 @@ function Create() {
     setservices(newArr3)// copying the old datas array
     
   }
-  
-
     const addedu=()=>{
         let list=[...education]
         list.push({
-      
           Name:'',
           Degree:'',
+          Cgpa:'',
+          Board:'',
+          Major:'',
           Startdate:null,
           Enddate:null
         },)
@@ -98,10 +117,19 @@ function Create() {
       list2.push({
         Cname:'',
         Title:'',
+        Description:'',
         Startdate:'',
         Enddate:''
       },)
       setworkexp(list2)
+    }
+    const addactivity=()=>{
+      let list2=[...workexp]
+      list2.push({
+        Name:'',
+        Description:'',
+      },)
+      setactivities(list2)
     }
     const addservices=()=>{
       let list3=[...services]
@@ -168,10 +196,6 @@ console.log(pics)
     }
     }
     
-   
-   
-
-
     return (
         <div>
             <MiniDrawer/>
@@ -234,6 +258,10 @@ console.log(pics)
                 <i class="fas fa-lock"></i>
                 <input type="text" placeholder="Email-Id" value={email} onChange={(e)=>{setemail(e.target.value)}} />
               </div>
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="text" placeholder="LinkedIn Profile" value={email} onChange={(e)=>{setlinkedIn(e.target.value)}} />
+              </div>
               <div class="text-field">
                 <i class="fas fa-lock"></i>
                 <textarea  placeholder="Something about yourself" rows='60' value={desc} onChange={(e)=>{setdesc(e.target.value)}}>
@@ -259,6 +287,18 @@ console.log(pics)
                             <div class="input-field">
                                 <i class="fas fa-lock"></i>
                                 <input name='Degree' type="text" placeholder="Degree" value={curr.Degree} onChange={(e)=>{handeleducation('Degree',e.target.value,index)}} />
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input name='Degree' type="text" placeholder="Cgpa" value={curr.Cgpa} onChange={(e)=>{handeleducation('Cgpa',e.target.value,index)}} />
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input name='Degree' type="text" placeholder="Board" value={curr.Board} onChange={(e)=>{handeleducation('Board',e.target.value,index)}} />
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input name='Degree' type="text" placeholder="Major" value={curr.Major} onChange={(e)=>{handeleducation('Major',e.target.value,index)}} />
                             </div>
                             <Box
                           sx={{
@@ -308,6 +348,12 @@ console.log(pics)
                                 <i class="fas fa-lock"></i>
                                 <input type="text" placeholder="Job Title" value={curr.Title} onChange={(e)=>{handelworkexp('Title',e.target.value,index)}} />
                             </div>
+                            <div class="text-field">
+                            <i class="fas fa-lock"></i>
+                            <textarea  placeholder="Description about the job" rows='60' value={curr.Description} onChange={(e)=>{handelworkexp('Description',e.target.value,index)}}>
+
+                            </textarea>
+                          </div>
                             <Box
                           sx={{
                             display: 'flex',
@@ -339,8 +385,62 @@ console.log(pics)
                   ADD
                 </Button>
                 
+                <Typography sx={{color:'#228B22' , fontSize:{xs:20,sm:30},fontFamily:'sans-serif'}}>
+                    Activities
+                    <Divider/>
+                 </Typography>
+                {
+                    activities.map((curr,index)=>{
+                        return(
+                            <Paper
+                            elevation={2}
+                            sx={{padding:2,marginBottom:2}}>
+                            
+                             <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="text" placeholder="Name" value={curr.Name}  onChange={(e)=>{handelactivities('Name',e.target.value,index)}} />
+                            </div>
+                            
+                            <div class="text-field">
+                            <i class="fas fa-lock"></i>
+                            <textarea  placeholder="Description" rows='60' value={curr.Description} onChange={(e)=>{handelactivities('Description',e.target.value,index)}}>
+
+                            </textarea>
+                          </div>
+                            <Box
+                          sx={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            p: 1,
+                            m: 1,
+                            bgcolor: 'background.paper',
+                          }}
+                        >
+                          <Container>
+                         
+                          <TextField id="outlined-basic" label="Start-Year" value={curr.Startdate} size="small" variant="outlined" color="success" onChange={(e)=>{handelworkexp('Startdate',e.target.value,index)}}/>
+                          </Container>
+                          <Container>
+                          
+                          <TextField id="outlined-basic" label="End-Year" value={curr.Enddate} size="small" variant="outlined" color="success" onChange={(e)=>{handelworkexp('Enddate',e.target.value,index)}}/>
+                          </Container>
+                         
+                        </Box>
+                           {/* <Divider
+                           sx={{color:"#228B22",height:1}}
+                           /> */}
+                        
+                            </Paper>
+                        );
+                    })
+                }
+                 <Button variant="contained" size="small" sx={{backgroundColor:"#228B22",marginLeft:70}} onClick={addexp} >
+                  ADD
+                </Button>
+                
+
                 <Typography sx={{color:'#228B22' , fontSize:{xs:20,sm:30}}}>
-                    Services (Any 3)
+                   Projects (Any 3)
                     <Divider/>
                  </Typography>
                 {

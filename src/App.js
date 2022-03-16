@@ -10,8 +10,6 @@ import Edit from './pages/Edit';
 
 function App() {
   
-    
-    
       const token=localStorage.getItem('token')
     console.log(token)
   
