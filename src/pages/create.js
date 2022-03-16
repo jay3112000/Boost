@@ -53,6 +53,24 @@ function Create() {
       Description:'',
     }
   ])
+  const [certifications,setcertifications]=useState([
+    {
+      Name:'',
+      Year:'',
+    }
+  ])
+  const [rewards,setrewards]=useState([
+    {
+      Name:'',
+      Year:'',
+    }
+  ])
+  const [skills,setskills]=useState([
+    {
+      Name:'',
+      Level:'',
+    }
+  ])
   const [services,setservices]=useState([
     {
       Name:'',
@@ -80,6 +98,30 @@ function Create() {
     newArr2[index][vname] = value;
     console.log(newArr2) 
     setworkexp(newArr2)// copying the old datas array
+    
+  }
+  const handelrewards=(vname,value,index)=>{
+    let newArr2 = [...rewards];
+
+    newArr2[index][vname] = value;
+    console.log(newArr2) 
+    setrewards(newArr2)// copying the old datas array
+    
+  }
+  const handelcert=(vname,value,index)=>{
+    let newArr2 = [...certifications];
+
+    newArr2[index][vname] = value;
+    console.log(newArr2) 
+    setcertifications(newArr2)// copying the old datas array
+    
+  }
+  const handelskills=(vname,value,index)=>{
+    let newArr2 = [...skills];
+
+    newArr2[index][vname] = value;
+    console.log(newArr2) 
+    setskills(newArr2)// copying the old datas array
     
   }
   const handelactivities=(vname,value,index)=>{
@@ -131,6 +173,31 @@ function Create() {
       },)
       setactivities(list2)
     }
+    const addrewards=()=>{
+      let list2=[...rewards]
+      list2.push({
+        Name:'',
+        Year:'',
+      },)
+      setrewards(list2)
+    }
+
+    const addcertificate=()=>{
+      let list2=[...certifications]
+      list2.push({
+        Name:'',
+        Year:'',
+      },)
+      setcertifications(list2)
+    }
+    const addskills=()=>{
+      let list2=[...skills]
+      list2.push({
+        Name:'',
+        Level:'',
+      },)
+      setskills(list2)
+    }
     const addservices=()=>{
       let list3=[...services]
       list3.push({
@@ -142,7 +209,7 @@ function Create() {
 
 
     const createcall=async()=>{
-         postResume({name,email,address,phone,desc,profilepic,color,images,education,workexp,services},dispatch)
+         postResume({name,email,address,phone,desc,profilepic,color,images,education,workexp,services,activities,rewards,certifications,skills},dispatch)
     }
     const postdata=async()=>{
       
@@ -384,7 +451,93 @@ console.log(pics)
                  <Button variant="contained" size="small" sx={{backgroundColor:"#228B22",marginLeft:70}} onClick={addexp} >
                   ADD
                 </Button>
-                
+                <Typography sx={{color:'#228B22' , fontSize:{xs:20,sm:30},fontFamily:'sans-serif'}}>
+                    Skills
+                    <Divider/>
+                 </Typography>
+                {
+                    skills.map((curr,index)=>{
+                        return(
+                            <Paper
+                            className="paperClass"
+                            elevation={2}
+                            sx={{padding:2,marginBottom:2}}>
+                            
+                             <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="text" placeholder="Name" value={curr.Name}  onChange={(e)=>{handelskills('Name',e.target.value,index)}} />
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="text" placeholder="Beginner , Intermediate , Expert" value={curr.Level} onChange={(e)=>{handelskills('Level',e.target.value,index)}} />
+                            </div>
+                        
+                            </Paper>
+                        );
+                    })
+                }
+                 <Button variant="contained" size="small" sx={{backgroundColor:"#228B22",marginLeft:70}} onClick={addskills} >
+                  ADD
+                </Button>
+
+                <Typography sx={{color:'#228B22' , fontSize:{xs:20,sm:30},fontFamily:'sans-serif'}}>
+                    Certifications
+                    <Divider/>
+                 </Typography>
+                {
+                    certifications.map((curr,index)=>{
+                        return(
+                            <Paper
+                            className="paperClass"
+                            elevation={2}
+                            sx={{padding:2,marginBottom:2}}>
+                            
+                             <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="text" placeholder="Name" value={curr.Name}  onChange={(e)=>{handelcert('Name',e.target.value,index)}} />
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="text" placeholder="Year" value={curr.Year} onChange={(e)=>{handelcert('Year',e.target.value,index)}} />
+                            </div>
+                        
+                            </Paper>
+                        );
+                    })
+                }
+                 <Button variant="contained" size="small" sx={{backgroundColor:"#228B22",marginLeft:70}} onClick={addcertificate} >
+                  ADD
+                </Button>
+
+                <Typography sx={{color:'#228B22' , fontSize:{xs:20,sm:30},fontFamily:'sans-serif'}}>
+                    Achievements
+                    <Divider/>
+                 </Typography>
+                {
+                    rewards.map((curr,index)=>{
+                        return(
+                            <Paper
+                            className="paperClass"
+                            elevation={2}
+                            sx={{padding:2,marginBottom:2}}>
+                            
+                             <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="text" placeholder="Name" value={curr.Name}  onChange={(e)=>{handelrewards('Name',e.target.value,index)}} />
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="text" placeholder="Year" value={curr.Year} onChange={(e)=>{handelrewards('Year',e.target.value,index)}} />
+                            </div>
+                        
+                            </Paper>
+                        );
+                    })
+                }
+                 <Button variant="contained" size="small" sx={{backgroundColor:"#228B22",marginLeft:70}} onClick={addrewards} >
+                  ADD
+                </Button>
+
                 <Typography sx={{color:'#228B22' , fontSize:{xs:20,sm:30},fontFamily:'sans-serif'}}>
                     Activities
                     <Divider/>
@@ -393,6 +546,7 @@ console.log(pics)
                     activities.map((curr,index)=>{
                         return(
                             <Paper
+                            className="paperClass"
                             elevation={2}
                             sx={{padding:2,marginBottom:2}}>
                             
@@ -407,34 +561,12 @@ console.log(pics)
 
                             </textarea>
                           </div>
-                            <Box
-                          sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            p: 1,
-                            m: 1,
-                            bgcolor: 'background.paper',
-                          }}
-                        >
-                          <Container>
-                         
-                          <TextField id="outlined-basic" label="Start-Year" value={curr.Startdate} size="small" variant="outlined" color="success" onChange={(e)=>{handelworkexp('Startdate',e.target.value,index)}}/>
-                          </Container>
-                          <Container>
-                          
-                          <TextField id="outlined-basic" label="End-Year" value={curr.Enddate} size="small" variant="outlined" color="success" onChange={(e)=>{handelworkexp('Enddate',e.target.value,index)}}/>
-                          </Container>
-                         
-                        </Box>
-                           {/* <Divider
-                           sx={{color:"#228B22",height:1}}
-                           /> */}
                         
                             </Paper>
                         );
                     })
                 }
-                 <Button variant="contained" size="small" sx={{backgroundColor:"#228B22",marginLeft:70}} onClick={addexp} >
+                 <Button variant="contained" size="small" sx={{backgroundColor:"#228B22",marginLeft:70}} onClick={addactivity} >
                   ADD
                 </Button>
                 
