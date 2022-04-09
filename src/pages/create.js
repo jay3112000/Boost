@@ -211,58 +211,6 @@ function Create() {
     const createcall=async()=>{
          postResume({name,email,address,phone,desc,profilepic,color,images,education,workexp,services,activities,rewards,certifications,skills},dispatch)
     }
-    const postdata=async()=>{
-      
-
-      const imagedata =new FormData();
-      imagedata.append("name",'images')
-     for(var x = 0; x<images.length; x++) {
-       imagedata.append('files', images[x])
-        }
-        for(var x = 0; x<images.length; x++) {
-          pics.push(images[x].name)
-      }
-console.log(pics)
-        try {
-          await axios.post("http://localhost:3000/api/upload", imagedata);
-        } catch (err) {
-          console.log(err)
-        }
-       
-
-          const profileimg = new FormData();
-            const imgName = profilepic.name ;
-            profileimg.append("file", profilepic);
-            profileimg.append("name", 'profilepic');
-          
-  
-            try {
-              await axios.post("http://localhost:3000/api/upload/profilepic", profileimg);
-            } catch (err) {
-              console.log(err)
-            }
-
-      const body={
-        userId:"61b07e2c58aa2128f8fa5527",
-        Name: name,
-        Phone:phone,
-        Address: address,
-        Email: email,
-        Profilepic:imgName,
-        Desc:desc,
-        Education:education,
-        Workexp:workexp,
-        Services: services,
-        Images:pics
-      };
-      try{
-        const response=await axios.post('http://localhost:3000/api/post', body)
-        console.log(response.data)
-    }catch(err){
-       console.log(err)
-    }
-    }
-    
     return (
         <div>
             <MiniDrawer/>

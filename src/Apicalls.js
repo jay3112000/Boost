@@ -44,7 +44,7 @@ export const getallposts=async(dispatch)=>{
 }
 
 
-export const postResume=async({name,email,address,phone,desc,profilepic,color,images,education,workexp,services},dispatch)=>{
+export const postResume=async({name,email,address,phone,desc,profilepic,color,images,education,workexp,services,activities,rewards,certifications,skills},dispatch)=>{
     dispatch({type:POST_START})
     
     let pics=[]
@@ -84,12 +84,15 @@ console.log(pics)
       Desc:desc,
       Education:education,
       Workexp:workexp,
+      Activities:activities,
+      Certificates:certifications,
+      Rewards:rewards,
+      Skills:skills,
       Services: services,
       Images:pics,
       Color:color
     };
     try{
-
       const response=await axios.post('https://boost-main.herokuapp.com/api/post', body)
       console.log(response.data)
       dispatch({type:POST_SUCCESS,payload:response.data})

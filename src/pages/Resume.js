@@ -7,9 +7,12 @@ import ExampleOne from '../Components/AnimatedText'
 import emailjs from 'emailjs-com';
 import { useForm } from "react-hook-form";
 import Modal from 'react-bootstrap/Modal'
-import Widget from 'rasa-webchat';
 import './Resume.css'
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { ServiceList } from './ServiceList';
+import VerticalTabs from '../Components/WorkEd';
+import CenteredTabs from '../Components/WorkEd';
 function Resume() {
     
     const  id  = useParams().id;
@@ -75,23 +78,41 @@ function Resume() {
                  
                   
              }}>
-
-
+               {/* Home */}
+            
                {/* About Me Scection */}
                  <div id='about' className='container py-5 mt-5'>
             <div className='row'>
                 <div className='col-lg-6 col-xm-12 '>
-                    <div className='ibox'>
-                    <img  src={`https://boost-main.herokuapp.com/images/${resumedata.Profilepic}`} alt='just wait' className="img-fluid  "/>
+                <div className='row'>
+                {/* <div class="home__social">
+                            <a href="https://www.linkedin.com/" target="_blank" class="home__social-icon">
+                               <LinkedInIcon/>
+                            </a>
+
+                            <a href="https://dribble.com/" target="_blank" class="home__social-icon">
+                                <GitHubIcon/>
+                            </a>
+                        </div> */}
+                    <div className='ibox'> 
+                    <img  src="https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tJTIwZm9vZCUyMHN0b3JlfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt='just wait' className="img-fluid  "/>
                     </div>
-                 
+                  </div>
                 </div>
                 <div className='col-lg-6 col-sm-12 my-2'>
-                <ExampleOne  name={resumedata.Name} color={resumedata.Color}/>
-                <h1 className="display-4">About me</h1>
-                 <p>
-                {resumedata.Desc}
-                 </p>
+                <div class="home__data">
+                        <ExampleOne  name={resumedata.Name} color={resumedata.Color}/>
+                            <h3 class="home__subtitle">Frontend Developer</h3>
+                            <p class="home__description">High level experience in web design and development 
+                                 knowledge, producing qulity work.</p>
+                            <a href="#contact" class="button button--flex">
+                                Contact Me <i class="uil uil-message button__icon"></i>
+                            </a>  
+                            <div class="about__buttons">
+                              <a download=""  href="assets/pdf/Alexa-Cv.pdf" class="button button--flex"></a>
+                              Downlaod CV<i class="uil uil-download-alt button__icon"></i>
+                          </div>   
+                </div>
                 </div>
             
             </div>
@@ -102,46 +123,17 @@ function Resume() {
             <h1 className='pt-3 mx-2'> SERVICES</h1>
                 <div className='container '>
                     <div className='row '>
-                      {
-                        resumedata.Services!=null?
-                       resumedata.Services.map((curr,index)=>{
-                         return(
-                          <div className='col-md-4 col-sm-12' key={index}>
-                          <div className="card my-3">
-                          <img
-                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/768px-React-icon.svg.png"
-                              className="card-img-top"
-                              alt="..."
-                          />
-                          <div className="card-body">
-                            
-
-                              <h5 className="card-title">{curr.Name}</h5>
-                            
-                              {
-                                ServiceList.map((item)=>{
-                                  if (item.name==curr.Name){
-                                    return (
-                                      <div>
-                                      <p1 className="card-text">
-                                       {item.desc}
-                                      </p1>
-                                      </div>
-                                    )
-                                  }
-                                })
-                              }
-                        
-                              <a href={curr.Link} className="btn btn-primary">See Project</a>
-                          </div>
-                          </div>
-                          </div>
-
-                         )
-                       }):null
-
-                      }
-                       
+                    <a href="#" class="data-card">
+                      <h3>270</h3>
+                      <h4>Care Facilities</h4>
+                      <p>Aenean lacinia bibendum nulla sed consectetur.</p>
+                      <span class="link-text">
+                        View All Providers
+                        <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+                  </svg>
+                      </span>
+                    </a>
                     </div>
 
                 </div> 
@@ -151,28 +143,9 @@ function Resume() {
 
         <div id='education'  className="experience">
       <div className="d-flex justify-content-center my-5">
-        <h1>education and experience</h1>
+      <CenteredTabs resumedata={resumedata}/>
       </div>
-      <div className="container experience-wrapper">
-        {
-          resumedata.Education!=null?
-          resumedata.Education.map((curr,index)=>{
-            return(
-              <div    className={parseFloat(index)%2==0?"timeline-block timeline-block-right":"timeline-block timeline-block-left"} key={index}>
-              <div className="marker"></div>
-              <div className="timeline-content">
-                <h3>{curr.Startdate}-{curr.Enddate}</h3>
-                <p className="fw-bold">{curr.Name}
-                </p>
-                <p> {curr.Degree}
-                </p>
-              </div>
-            </div>
-            )
-          }):null
-        }
-       
-      </div>
+      
     </div>
     {/* PORTFOLIO CAROUSEL */}
    <div id='portfolio'>
@@ -336,14 +309,7 @@ function Resume() {
       </div>
     </div>
              </Container>
-             <Widget
-            initPayload={"/get_started"}
-            customData={{"resumeId" : id}}
-            socketUrl={"http://localhost:5005"}
-            socketPath={"/socket.io/"}
-            customData={{"language": "en"}} // arbitrary custom data. Stay minimal as this will be added to the socket
-            title={"Title"}
-          />
+             
         </div>
         
     )
