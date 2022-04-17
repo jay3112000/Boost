@@ -1,112 +1,160 @@
-.profileimage{
-    width: 100%;
-    height: auto;
-    max-width: 100vw;
-     object-fit: fill !important;
-     transition: .5s ease-in-out;
-     cursor: pointer;
+.profileimage {
+  width: 100%;
+  height: auto;
+  max-width: 100vw;
+  object-fit: fill !important;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .file-input {
-    display: inline-block;
-    text-align: left;
-    background: #fff;
-    padding: 16px;
-    width: 450px;
-    position: relative;
-    border-radius: 3px;
-  }
-  
-  .file-input > [type='file'] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 10;
-    cursor: pointer;
-  }
-  
-  .file-input > .button {
-    display: inline-block;
-    cursor: pointer;
-    background: #eee;
-    padding: 8px 16px;
-    border-radius: 2px;
-    margin-right: 8px;
-  }
-  
-  .file-input:hover > .button {
-    background: #228B22;
-    color: white;
-  }
-  
-  .file-input > .label {
-    color: #333;
-    white-space: nowrap;
-    opacity: .3;
-  }
-  
-  .file-input.-chosen > .label {
-    opacity: 1;
-  }
+  display: inline-block;
+  text-align: left;
+  background: #fff;
+  padding: 16px;
+  width: 450px;
+  position: relative;
+  border-radius: 3px;
+}
 
-  .color-selector {
-    display: inline-block;
-    margin: 0 auto;
-    border-radius: 3px;
-    position: relative;
-    padding: 6px 32px 6px 10px;
-    font-family: verdana;
-    background: white;
-  }
-  .color-selector::after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 5px 0 5px;
-    border-color: black transparent transparent transparent;
-    position: absolute;
-    right: 10px;
-    top: 17px;
-  }
-  .color-selector .circle {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1px solid #eee;
-    margin-right: 10px;
-  }
-  .color-selector .hidden {
-    position: absolute;
-    left: 0;
-    opacity: 0;
-  }
-  .color-selector span {
-    display: inline-block;
-    vertical-align: middle;
-  }
-  
-  .overlay {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    top: 105px;
-    transition: 1s;
-  }
-  .overlay.active {
-    top: calc(-50% + 105px);
-    width: 160%;
-    height: 160%;
-    left: -30%;
-  }
-  .paperClass {
-    width:70%;
-  }
+.file-input > [type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.file-input > .button {
+  display: inline-block;
+  cursor: pointer;
+  background: #eee;
+  padding: 8px 16px;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+
+.file-input:hover > .button {
+  background: #228b22;
+  color: white;
+}
+
+.file-input > .label {
+  color: #333;
+  white-space: nowrap;
+  opacity: 0.3;
+}
+
+.file-input.-chosen > .label {
+  opacity: 1;
+}
+
+.color-selector {
+  display: inline-block;
+  margin: 0 auto;
+  border-radius: 3px;
+  position: relative;
+  padding: 6px 32px 6px 10px;
+  font-family: verdana;
+  background: white;
+}
+.color-selector::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 5px 0 5px;
+  border-color: black transparent transparent transparent;
+  position: absolute;
+  right: 10px;
+  top: 17px;
+}
+.color-selector .circle {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #eee;
+  margin-right: 10px;
+}
+.color-selector .hidden {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+.color-selector span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.overlay {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 105px;
+  transition: 1s;
+}
+.overlay.active {
+  top: calc(-50% + 105px);
+  width: 160%;
+  height: 160%;
+  left: -30%;
+}
+.paperClass {
+  width: 70%;
+}
+
+.scrollsnap {
+  height: 80vh;
+  overflow-y: auto;
+  padding: 20px;
+  scroll-snap-type: y mandatory;
+}
+.scrollsnap::-webkit-scrollbar {
+  width: 2px;
+}
+
+.scrollsnap::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.scrollsnap::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.scrollsnap::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.section {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+.profileWrapper {
+  height: 80vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.addWrapper {
+  height: 80vh;
+  overflow-y: auto;
+}
