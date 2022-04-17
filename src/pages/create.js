@@ -570,11 +570,11 @@ function Create() {
                 {
         
         uploaded==true ?
-        <div style={{"position":"relative","width":"100%","zIndex":"10000"}}>
+        <div style={{"position":"absolute","width":"100%","zIndex":"10000"}}>
           <Alert severity="success"  variant="filled" >Posted Successfully</Alert>
           </div>
         :error!=null?
-        <div style={{"position":"relative","width":"100%","zIndex":"10000"}}>
+        <div style={{"position":"absolute","width":"100%","zIndex":"10000"}}>
         <Alert severity="error" variant="filled">Something Went Wrong</Alert>
         </div>
         :null

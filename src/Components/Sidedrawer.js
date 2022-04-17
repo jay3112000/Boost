@@ -166,8 +166,11 @@ export default function MiniDrawer() {
     if(page=='Create'){
       history.push('/create')
     }
-    if(page=='Profile'){
-      history.push('/profile')
+    if(page=='Logout'){
+      localStorage.removeItem('token');
+      history.push('/')
+      window.location.reload()
+      
     }
    }
 
@@ -224,14 +227,15 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List >
-          {['Your Resumes', 'Create', 'Profile'].map((text, index) => (
+          {['Your Resumes', 'Create', 'Logout'].map((text, index) => (
             <ListItem button key={text} sx={{color:"white"}} >
               <ListItemIcon sx={{color:"#228B22"}}>
-                {text=='Your Resumes' ? <BorderAllIcon/> : text=='Timeline'? <TimelineIcon/> :text=='Create'? <AddCircleIcon/>:text=='Profile'?<AccountCircleIcon/>:null}
+                {text=='Your Resumes' ? <BorderAllIcon/> : text=='Timeline'? <TimelineIcon/> :text=='Create'? <AddCircleIcon/>:text=='Logout'?<AccountCircleIcon/>:null}
               </ListItemIcon>
               <ListItemText sx={{color:"#228B22"}} primary={text} onClick={()=>{gotopage(text)}} />
             </ListItem>
           ))}
+          
         </List>
         <Divider />
         
