@@ -51,66 +51,53 @@ export default function CenteredTabs({resumedata}) {
         <Tab label="EDUCATION" />
         <Tab label="EXPERIENCE" />
       </Tabs>
-      <TabPanel value={value} index={0}>
-      <div className="container experience-wrapper">
+       <TabPanel value={value} index={0}>
+      
 {
   resumedata.Education!=null?
   resumedata.Education.map((curr,index)=>{
     return(
-      <div    className={parseFloat(index)%2==0?"timeline-block timeline-block-right":"timeline-block timeline-block-left"} key={index}>
-      <div className="marker"></div>
-      <div className="timeline-content">
-        <h3>{curr.Startdate}-{curr.Enddate}</h3>
-        <p className="fw-bold">{curr.Name}
-        </p>
-        <p> {curr.Degree}
-        </p>
+      <ul class="timeline">
+  
+  <li>
+    <div class="direction-r" className={parseFloat(index)%2==0?"direction-r":"direction-l"} key={index}>
+      <div class="flag-wrapper">
+        <span class="hexa"></span>
+        <span class="flag">{curr.Name}</span>
+        <span class="time-wrapper"><span class="time"  style={{"backgroundColor":`${resumedata.Color}`}}>{curr.Startdate}-{curr.Enddate}</span></span>
       </div>
+      <div class="desc">{curr.Degree}</div>
     </div>
+  </li> 
+  
+</ul>
     )
   }):null
 }
 
-</div> 
-      </TabPanel>
+      </TabPanel> 
       <TabPanel value={value} index={1}>
+      {
+  resumedata.Workexp!=null?
+  resumedata.Workexp.map((curr,index)=>{
+    return(
       <ul class="timeline">
   
   <li>
-    <div class="direction-r">
+    <div class="direction-r" className={parseFloat(index)%2==0?"direction-r":"direction-l"} key={index}>
       <div class="flag-wrapper">
         <span class="hexa"></span>
-        <span class="flag">Lorem ipsum.</span>
-        <span class="time-wrapper"><span class="time">Feb 2015</span></span>
+        <span class="flag">{curr.Cname}</span>
+        <span class="time-wrapper"><span class="time" style={{"backgroundColor":`${resumedata.Color}`}}>{curr.Startdate}-{curr.Enddate}</span></span>
       </div>
-      <div class="desc">Lorem ipsum Nisi labore aute do aute culpa magna nulla voluptate exercitation deserunt proident.</div>
+      <div class="desc">{curr.Title}</div>
     </div>
-  </li>
-
+  </li> 
   
-  <li>
-    <div class="direction-l">
-      <div class="flag-wrapper">
-        <span class="hexa"></span>
-        <span class="flag">Lorem ipsum Anim.</span>
-        <span class="time-wrapper"><span class="time">Dec 2014</span></span>
-      </div>
-      <div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim cupidatat laborum dolore.</div>
-    </div>
-  </li>
-
-  
-  <li>
-    <div class="direction-r">
-      <div class="flag-wrapper">
-        <span class="hexa"></span>
-        <span class="flag">Lorem Occaecat.</span>
-        <span class="time-wrapper"><span class="time">July 2014</span></span>
-      </div>
-      <div class="desc">Lorem ipsum Minim labore Ut cupidatat quis qui deserunt proident fugiat pariatur cillum cupidatat reprehenderit sit id dolor consectetur ut.</div>
-    </div>
-  </li>
 </ul>
+    )
+  }):null
+}
       </TabPanel>
     </Paper>
   );

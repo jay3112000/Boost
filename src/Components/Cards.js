@@ -55,6 +55,8 @@ export default function ResumeReviewCard(props) {
       />
        <Link
       to={'/resume/'+props.data._id}
+      target="_blank" 
+      rel="noopener noreferrer"
       >
       <CardMedia
         component="img"
