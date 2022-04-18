@@ -17,6 +17,7 @@ import LinearWithValueLabel from "../Components/Certifications";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
+import Chatbot from "../Components/Chatbot";
 
 function Resume() {
   const id = useParams().id;
@@ -566,6 +567,7 @@ function Resume() {
           </div>
         </div>
       </Container>
+      <Chatbot/>
     </div>
   );
 }

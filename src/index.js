@@ -5,7 +5,6 @@ import App from './App';
 import { ResumeListcontextprovider } from './contextApi/ResumeList';
 import { CEResumecontextprovider } from './contextApi/CreateEditResume';
 
-
 ReactDOM.render(
   <React.StrictMode>
     <Authcontextprovider>
