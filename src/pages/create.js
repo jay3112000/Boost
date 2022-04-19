@@ -26,6 +26,9 @@ function Create() {
   const [phone, setphone] = useState("");
   const [desc, setdesc] = useState("");
   const [linkedIn, setlinkedIn] = useState("");
+  const [yrExp, setyrExp] = useState("");
+  const [ role, setrole] = useState("");
+  const [noProjects, setnoProjects] = useState("");
   const [profilepic, setprofilepic] = useState("");
   const [preview, setpreview] = useState(null);
   const [color, setcolor] = useState("#1569a8");
@@ -33,6 +36,20 @@ function Create() {
   const { Resume, error, uploading, uploaded, editing, edited, dispatch } =
     useContext(CEResumecontext);
   const [pics, setpics] = useState([]);
+  const [personelQ, setpersonalQ] = useState(
+    {
+      Job: "",
+      Strength: "",
+      Weakness: "",
+      Expectations: "",
+      Future: "",
+      Pjob: "",
+      Pressure:"",
+      About: "",
+      Others: "",
+      Achievement: "",
+    },
+  );
   const [education, seteducation] = useState([
     {
       Name: "",
@@ -87,6 +104,47 @@ function Create() {
   const handleChangeImage = (e) => {
     setprofilepic(e.target.files[0]);
     setpreview(URL.createObjectURL(e.target.files[0]));
+  };
+  
+  const handelPersonalJob = ( value) => {
+    
+    setpersonalQ({...personelQ,Job:value}); // copying the old datas array
+  };
+  const handelPersonalStrength= ( value) => {
+    
+    setpersonalQ({...personelQ,Strength:value}); // copying the old datas array
+  };
+  const handelPersonalWeak = ( value) => {
+    
+    setpersonalQ({...personelQ,Weakness:value}); // copying the old datas array
+  };
+  const handelPersonalExp = ( value) => {
+    
+    setpersonalQ({...personelQ,Expectations:value}); // copying the old datas array
+  };
+  const handelPersonalFuture = ( value) => {
+    
+    setpersonalQ({...personelQ,Future:value}); // copying the old datas array
+  };
+  const handelPersonalPJob = ( value) => {
+    
+    setpersonalQ({...personelQ,Pjob:value}); // copying the old datas array
+  };
+  const handelPersonalPressure = ( value) => {
+    
+    setpersonalQ({...personelQ,Pressure:value}); // copying the old datas array
+  };
+  const handelPersonalAbout = ( value) => {
+    
+    setpersonalQ({...personelQ,About:value}); // copying the old datas array
+  };
+  const handelPersonalOthers = ( value) => {
+    
+    setpersonalQ({...personelQ,Others:value}); // copying the old datas array
+  };
+  const handelPersonalAcheive = ( value) => {
+    
+    setpersonalQ({...personelQ,Achievement:value}); // copying the old datas array
   };
 
   const handeleducation = (vname, value, index) => {
@@ -350,8 +408,41 @@ function Create() {
                         <i class="fas fa-lock"></i>
                         <input
                           type="text"
+                          placeholder="Role eg.Frontend Developer"
+                          value={role}
+                          onChange={(e) => {
+                            setrole(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input
+                          type="text"
+                          placeholder="No. of Completed projects"
+                          value={noProjects}
+                          onChange={(e) => {
+                            setnoProjects(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input
+                          type="text"
+                          placeholder="Years of Experience"
+                          value={yrExp}
+                          onChange={(e) => {
+                            setyrExp(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input
+                          type="text"
                           placeholder="LinkedIn Profile"
-                          value={email}
+                          value={linkedIn}
                           onChange={(e) => {
                             setlinkedIn(e.target.value);
                           }}
@@ -908,6 +999,159 @@ function Create() {
                     </div>
                     <div className="section">
                       <Typography
+                        sx={{
+                          color: "#228B22",
+                          fontSize: { xs: 20, sm: 30 },
+                          fontFamily: "sans-serif",
+                        }}
+                      >
+                        Personal Questions
+                        <Divider />
+                      </Typography>
+                     
+                      <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input
+                          type="text"
+                          placeholder="Why Do You Want This Job?"
+                          value={personelQ.Job}
+                          onChange={(e) => {
+                            handelPersonalJob(
+                  
+                              e.target.value,
+                            );
+                          }}
+                        />
+                      </div>
+                      <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input
+                          type="text"
+                          placeholder="What Is Your Greatest Strength?"
+                          value={personelQ.Strength}
+                          onChange={(e) => {
+                           handelPersonalStrength(
+                              
+                              e.target.value,
+                            );
+                          }}
+                        />
+                      </div>
+                      <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input
+                          type="text"
+                          placeholder="What Is Your Greatest Weakness?"
+                          value={personelQ.Weakness}
+                          onChange={(e) => {
+                            handelPersonalWeak(
+                              
+                              e.target.value,
+                            );
+                          }}
+                        />
+                      </div>
+                      <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input
+                          type="text"
+                          placeholder="What Are Your Salary Expectations?"
+                          value={personelQ.Expectations}
+                          onChange={(e) => {
+                            handelPersonalExp(
+                              
+                              e.target.value,
+                            );
+                          }}
+                        />
+                      </div>
+                      <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input
+                          type="text"
+                          placeholder="What Are Goals for the Future?"
+                          value={personelQ.Future}
+                          onChange={(e) => {
+                            handelPersonalFuture(
+                              
+                              e.target.value,
+                            );
+                          }}
+                        />
+                      </div>
+                      <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input
+                          type="text"
+                          placeholder="What did you like about your previous job?"
+                          value={personelQ.Pjob}
+                          onChange={(e) => {
+                            handelPersonalPJob(
+                              
+                              e.target.value,
+                            );
+                          }}
+                        />
+                      </div>
+                      <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input
+                          type="text"
+                          placeholder="How do you handle stress and pressure?"
+                          value={personelQ.Pressure}
+                          onChange={(e) => {
+                            handelPersonalPressure(
+                              
+                              e.target.value,
+                            );
+                          }}
+                        />
+                      </div>
+                      <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input
+                          type="text"
+                          placeholder="What are you passionate about?"
+                          value={personelQ.About}
+                          onChange={(e) => {
+                            handelPersonalAbout(
+                              
+                              e.target.value,
+                            );
+                          }}
+                        />
+                      </div>
+                      <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input
+                          type="text"
+                          placeholder="How well do you work with others?"
+                          value={personelQ.Others}
+                          onChange={(e) => {
+                            handelPersonalOthers(
+                              
+                              e.target.value,
+                            );
+                          }}
+                        />
+                      </div>
+                      <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input
+                          type="text"
+                          placeholder="What is your biggest professional achievement?"
+                          value={personelQ.Achievement}
+                          onChange={(e) => {
+                            handelPersonalAcheive(
+                              
+                              e.target.value,
+                            );
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <div className="section">
+                      <Typography
                         sx={{ color: "#228B22", fontSize: { xs: 20, sm: 30 } }}
                       >
                         Images of Your Recent Work
@@ -936,74 +1180,7 @@ function Create() {
                       </button>
                     </div>
 
-                    <div className="section">
-                      <Typography
-                        sx={{
-                          color: "#228B22",
-                          fontSize: { xs: 20, sm: 30 },
-                          fontFamily: "sans-serif",
-                        }}
-                      >
-                        Additional Questions
-                        <Divider />
-                      </Typography>
-
-                      <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input
-                          type="text"
-                          placeholder="Previous salary"
-                          // value={name}
-                          // onChange={(e) => {
-                          //   setname(e.target.value);
-                          // }}
-                        />
-                      </div>
-                      <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input
-                          type="text"
-                          placeholder="Expected salary "
-                          // value={address}
-                          // onChange={(e) => {
-                          //   setaddress(e.target.value);
-                          // }}
-                        />
-                      </div>
-                      <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input
-                          type="text"
-                          placeholder="Career gap (if any)"
-                          // value={email}
-                          // onChange={(e) => {
-                          //   setemail(e.target.value);
-                          // }}
-                        />
-                      </div>
-                      <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input
-                          type="text"
-                          placeholder="Preferred Location"
-                          // value={email}
-                          // onChange={(e) => {
-                          //   setlinkedIn(e.target.value);
-                          // }}
-                        />
-                      </div>
-                      <div class="text-field">
-                        <i class="fas fa-lock"></i>
-                        <textarea
-                          placeholder="What is your 5 year plan?"
-                          rows="60"
-                          // value={desc}
-                          // onChange={(e) => {
-                          //   setdesc(e.target.value);
-                          // }}
-                        ></textarea>
-                      </div>
-                    </div>
+                   
                   </div>
                 </form>
               </div>
