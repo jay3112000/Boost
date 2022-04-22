@@ -44,7 +44,8 @@ export const getallposts=async(dispatch)=>{
 }
 
 
-export const postResume=async({name,email,address,phone,desc,profilepic,color,images,education,workexp,services,activities,rewards,certifications,skills},dispatch)=>{
+export const postResume=async({name,email,address,phone,role,noProjects,yrExp,linkedIn, personelQ ,desc,profilepic,color,images,education,workexp,services,activities,rewards,certifications,skills},dispatch)=>{
+  console.log(personelQ);
     dispatch({type:POST_START})
     
     let pics=[]
@@ -80,6 +81,10 @@ console.log(pics)
       Phone:phone,
       Address: address,
       Email: email,
+      LinkId:linkedIn,
+      Role:role,
+      NoProjects:noProjects,
+      YrExp:yrExp,
       Profilepic:imgName,
       Desc:desc,
       Education:education,
@@ -89,6 +94,7 @@ console.log(pics)
       Rewards:rewards,
       Skills:skills,
       Services: services,
+      PersonalQ: personelQ,
       Images:pics,
       Color:color
     };

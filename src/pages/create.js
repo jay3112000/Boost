@@ -27,7 +27,7 @@ function Create() {
   const [desc, setdesc] = useState("");
   const [linkedIn, setlinkedIn] = useState("");
   const [yrExp, setyrExp] = useState("");
-  const [ role, setrole] = useState("");
+  const [role, setrole] = useState("");
   const [noProjects, setnoProjects] = useState("");
   const [profilepic, setprofilepic] = useState("");
   const [preview, setpreview] = useState(null);
@@ -109,42 +109,52 @@ function Create() {
   const handelPersonalJob = ( value) => {
     
     setpersonalQ({...personelQ,Job:value}); // copying the old datas array
+    console.log(personelQ)
   };
   const handelPersonalStrength= ( value) => {
     
     setpersonalQ({...personelQ,Strength:value}); // copying the old datas array
+    console.log(personelQ)
   };
   const handelPersonalWeak = ( value) => {
     
     setpersonalQ({...personelQ,Weakness:value}); // copying the old datas array
+    console.log(personelQ)
   };
   const handelPersonalExp = ( value) => {
     
     setpersonalQ({...personelQ,Expectations:value}); // copying the old datas array
+    console.log(personelQ)
   };
   const handelPersonalFuture = ( value) => {
     
     setpersonalQ({...personelQ,Future:value}); // copying the old datas array
+    console.log(personelQ)
   };
   const handelPersonalPJob = ( value) => {
     
     setpersonalQ({...personelQ,Pjob:value}); // copying the old datas array
+    console.log(personelQ)
   };
   const handelPersonalPressure = ( value) => {
     
     setpersonalQ({...personelQ,Pressure:value}); // copying the old datas array
+    console.log(personelQ)
   };
   const handelPersonalAbout = ( value) => {
     
     setpersonalQ({...personelQ,About:value}); // copying the old datas array
+    console.log(personelQ)
   };
   const handelPersonalOthers = ( value) => {
     
     setpersonalQ({...personelQ,Others:value}); // copying the old datas array
+    console.log(personelQ)
   };
   const handelPersonalAcheive = ( value) => {
     
     setpersonalQ({...personelQ,Achievement:value}); // copying the old datas array
+    console.log(personelQ)
   };
 
   const handeleducation = (vname, value, index) => {
@@ -270,6 +280,11 @@ function Create() {
         email,
         address,
         phone,
+        role,
+        noProjects,
+        yrExp,
+       linkedIn,
+       personelQ,
         desc,
         profilepic,
         color,
@@ -280,7 +295,8 @@ function Create() {
         activities,
         rewards,
         certifications,
-        skills,
+        skills
+        
       },
       dispatch
     );
@@ -891,71 +907,9 @@ function Create() {
 
                     <div className="section">
                       <Typography
-                        sx={{
-                          color: "#228B22",
-                          fontSize: { xs: 20, sm: 30 },
-                          fontFamily: "sans-serif",
-                        }}
-                      >
-                        Activities
-                        <Divider />
-                      </Typography>
-                      {activities.map((curr, index) => {
-                        return (
-                          <Paper
-                            className="paperClass"
-                            elevation={2}
-                            sx={{ padding: 2, marginBottom: 2 }}
-                          >
-                            <div class="input-field">
-                              <i class="fas fa-lock"></i>
-                              <input
-                                type="text"
-                                placeholder="Name"
-                                value={curr.Name}
-                                onChange={(e) => {
-                                  handelactivities(
-                                    "Name",
-                                    e.target.value,
-                                    index
-                                  );
-                                }}
-                              />
-                            </div>
-
-                            <div class="text-field">
-                              <i class="fas fa-lock"></i>
-                              <textarea
-                                placeholder="Description"
-                                rows="60"
-                                value={curr.Description}
-                                onChange={(e) => {
-                                  handelactivities(
-                                    "Description",
-                                    e.target.value,
-                                    index
-                                  );
-                                }}
-                              ></textarea>
-                            </div>
-                          </Paper>
-                        );
-                      })}
-                      <Button
-                        variant="contained"
-                        size="small"
-                        sx={{ backgroundColor: "#228B22" }}
-                        onClick={addactivity}
-                      >
-                        ADD
-                      </Button>
-                    </div>
-
-                    <div className="section">
-                      <Typography
                         sx={{ color: "#228B22", fontSize: { xs: 20, sm: 30 } }}
                       >
-                        Projects (Any 3)
+                        Services
                         <Divider />
                       </Typography>
                       {services.map((curr, index) => {
