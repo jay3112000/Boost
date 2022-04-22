@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Kommunicate from '@kommunicate/kommunicate-chatbot-plugin';
 
 
 class Chatbot extends Component {
