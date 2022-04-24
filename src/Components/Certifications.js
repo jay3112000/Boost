@@ -153,7 +153,9 @@ export default function VerticalTabs({resumedata}) {
     
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <div className='row'>
+        {
+          isPhone==false?
+          <div className='row'>
         {
       resumedata.Rewards
     !=null?
@@ -171,7 +173,68 @@ export default function VerticalTabs({resumedata}) {
         )
       }):null
     }
-        </div>
+        </div>:
+         <div
+         id="carouselExampleDark2"
+         class="carousel carousel-dark slide"
+         data-bs-ride="carousel"
+       >
+         
+         <div className="carousel-inner">
+           {resumedata.Rewards && (
+             <div className="carousel-item active">
+               <div class="rewardbox" style={{"borderTop":`3px solid ${resumedata.Color}`}} >
+       <h5>{resumedata.Rewards[0].Name}</h5>
+       <p>{resumedata.Rewards[0].Year}</p>
+       <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt=""/>
+     </div>
+             </div>
+           )}
+
+           {resumedata.Rewards != null
+             ? resumedata.Rewards.slice(1).map((curr, index) => {
+                 return (
+                   <div className="carousel-item " key={index}>
+                    <div class="rewardbox" style={{"borderTop":`3px solid ${resumedata.Color}`}} key={index}>
+       <h5>{curr.Name}</h5>
+       <p>{curr.Year}</p>
+       <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt=""/>
+     </div>
+                   </div>
+                 );
+               })
+             : null}
+         </div>
+         <button
+           className="carousel-control-prev"
+           type="button"
+           data-bs-target="#carouselExampleDark2"
+           data-bs-slide="prev"
+         >
+           <span
+             className="carousel-control-prev-icon"
+
+             aria-hidden="true"
+           ></span>
+           <span className="visually-hidden">Previous</span>
+         </button>
+         <button
+           className="carousel-control-next"
+           type="button"
+           data-bs-target="#carouselExampleDark2"
+           data-bs-slide="next"
+         >
+           <span
+             className="carousel-control-next-icon"
+
+             aria-hidden="true"
+           ></span>
+           <span className="visually-hidden">Next</span>
+         </button>
+       </div>
+
+        }
+        
      
      
       </TabPanel>

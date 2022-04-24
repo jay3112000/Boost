@@ -6,7 +6,8 @@ import './create.css'
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import { useParams } from 'react-router-dom'
 import axios from "axios";
-
+import Snackbar from '@mui/material/Snackbar';
+import Alert from "@mui/material/Alert";
 function Edit() {
     const  id  = useParams().id;
     const [resumedata,setresumedata]=useState([])
@@ -22,7 +23,7 @@ function Edit() {
     const [education,seteducation]=useState([])
     const [workexp,setworkexp]=useState([])
     const [services,setservices]=useState([])
-    
+    const [openDialog,setOpenDialog]=useState(false);
     const getresume=async()=>{
         try{
             const response=await axios.get(`https://boost-main.herokuapp.com/api/post/${id}`)
@@ -157,6 +158,7 @@ function Edit() {
             try{
               const response=await axios.put(`https://boost-main.herokuapp.com/api/post/${id}`, body)
               console.log(response.data)
+              setOpenDialog(true)
           }catch(err){
              console.log(err)
           }
@@ -363,10 +365,13 @@ function Edit() {
                 </Box>
                 </Container>
             </div>
-
             
         </div>
-            
+        <Snackbar open={openDialog} autoHideDuration={6000} >
+            <Alert  severity="success" sx={{ width: '100%' }}>
+              Resume Successfully Edited. Go to HomePage
+            </Alert>
+          </Snackbar>
         </div>
     )
 }

@@ -18,7 +18,13 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import axios from "axios";
 import { postResume } from "../Apicalls";
 import { CEResumecontext } from "../contextApi/CreateEditResume";
-
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+import Snackbar from '@mui/material/Snackbar';
+import { useHistory } from "react-router-dom";
 function Create() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -35,6 +41,7 @@ function Create() {
   const [images, setimages] = useState([""]);
   const { Resume, error, uploading, uploaded, editing, edited, dispatch } =
     useContext(CEResumecontext);
+    let history = useHistory();
   const [pics, setpics] = useState([]);
   const [personelQ, setpersonalQ] = useState(
     {
@@ -299,7 +306,7 @@ function Create() {
         
       },
       dispatch
-    );
+    )
   };
   return (
     <div>
@@ -775,17 +782,18 @@ function Create() {
                                 }}
                               />
                             </div>
-                            <div class="input-field">
-                              <i class="fas fa-lock"></i>
-                              <input
-                                type="text"
-                                placeholder="Beginner , Intermediate , Expert"
-                                value={curr.Level}
-                                onChange={(e) => {
-                                  handelskills("Level", e.target.value, index);
-                                }}
-                              />
-                            </div>
+                        <FormControl style={{"marginLeft":"40px"}}>
+                        {/* <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel> */}
+                        <RadioGroup
+                          row
+                          aria-labelledby="demo-row-radio-buttons-group-label"
+                          name="row-radio-buttons-group"
+                        >
+                          <FormControlLabel value="Beginner"  control={<Radio onChange={(e)=>{ handelskills("Level", e.target.value, index)}} />} label="Beginner" />
+                          <FormControlLabel value="Intermediate" control={<Radio onChange={(e)=>{ handelskills("Level", e.target.value, index)}}/>} label="Intermediate" />
+                          <FormControlLabel value="Expert" control={<Radio onChange={(e)=>{ handelskills("Level", e.target.value, index)}}/>} label="Expert" />
+                        </RadioGroup>
+                      </FormControl>
                           </Paper>
                         );
                       })}
@@ -1141,13 +1149,11 @@ function Create() {
             </Box>
           </Box>
           {uploaded == true ? (
-            <div
-              style={{ position: "relative", width: "100%", zIndex: "10000" }}
-            >
-              <Alert severity="success" variant="filled">
-                Posted Successfully
-              </Alert>
-            </div>
+            <Snackbar open={true} autoHideDuration={6000} >
+            <Alert  severity="success" sx={{ width: '100%' }}>
+              Resume Successfully Uploaded. Go to HomePage
+            </Alert>
+          </Snackbar>
           ) : error != null ? (
             <div
               style={{ position: "relative", width: "100%", zIndex: "10000" }}

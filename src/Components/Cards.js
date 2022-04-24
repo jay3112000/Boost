@@ -53,7 +53,7 @@ export default function ResumeReviewCard(props) {
         title={props.data.Name}
         subheader={dateString}
       />
-       <Link
+       <a
       to={'/resume/'+props.data._id}
       target="_blank" 
       rel="noopener noreferrer"
@@ -64,7 +64,7 @@ export default function ResumeReviewCard(props) {
         image={`https://boost-main.herokuapp.com/images/${props.data.Profilepic}`}
         alt="Paella dish"
       />
-      </Link>
+      </a>
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           {props.data.Desc}

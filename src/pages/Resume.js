@@ -141,16 +141,16 @@ function Resume() {
             <div className="col-lg-6 col-sm-12 my-2">
               <div class="home__data">
                 <ExampleOne name={resumedata.Name} color={resumedata.Color} />
-                <h2 class="home__subtitle">Frontend Developer</h2>
+                <h2 class="home__subtitle">{resumedata.Role}</h2>
                 
                 <p class="home__description">{resumedata.Desc}</p>
                 <div className="row my-4">
                   <div className="col-lg-6 col-sm-12 my-2">
-                    <h3>08+</h3>
+                    <h3>{resumedata.YrExp}</h3>
                     <h4 class="about__info-name">Years Expeirence</h4>
                   </div>
                   <div className="col-lg-6 col-sm-12 my-2">
-                    <h3>20+</h3>
+                    <h3>{resumedata.NoProjects}</h3>
                     <h4 class="about__info-name">Completed Project</h4>
                   </div>
                   <h5>{`Resume Id - ${resumedata._id}`}</h5>
@@ -158,7 +158,7 @@ function Resume() {
                 <Button
                   style={{ "backgroundColor": `${resumedata.Color}`,"padding":"5px","borderRadius":"4px" }}
                   variant="contained"
-                  endIcon={<SendIcon />}
+                  endIcon={<SendIcon style={{ color: "white" }} />}
                 >
                   <a href="#contacts" style={{ color: "white" }}>
                     Contact Me

@@ -66,7 +66,36 @@ export default function CenteredTabs({resumedata}) {
         <span class="flag">{curr.Name}</span>
         <span class="time-wrapper"><span class="time"  style={{"backgroundColor":`${resumedata.Color}`}}>{curr.Startdate}-{curr.Enddate}</span></span>
       </div>
-      <div class="desc">{curr.Degree}</div>
+      <div className='desc'>
+        {
+          curr.Degree &&
+          <div>
+            Degree: {curr.Degree}
+          </div>
+        }
+        {
+          curr.Cgpa &&
+          <div>
+            Cgpa: {curr.Cgpa}
+          </div>
+        }
+        {
+          curr.Board &&
+          <div>
+          Board: {curr.Board}
+            </div>
+        }
+         {
+           curr.Major &&
+           <div>
+           Major: {curr.Major}
+           </div>
+         }
+          
+           
+
+      </div>
+      
     </div>
   </li> 
   
@@ -90,7 +119,21 @@ export default function CenteredTabs({resumedata}) {
         <span class="flag">{curr.Cname}</span>
         <span class="time-wrapper"><span class="time" style={{"backgroundColor":`${resumedata.Color}`}}>{curr.Startdate}-{curr.Enddate}</span></span>
       </div>
-      <div class="desc">{curr.Title}</div>
+      <div class="desc">
+        {
+          curr.Title &&
+          <div>
+            Role: {curr.Title}
+          </div>
+        }
+        {
+          curr.Desc &&
+          <div>
+            {curr.Desc}
+          </div>
+        }
+        
+        </div>
     </div>
   </li> 
   
