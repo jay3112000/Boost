@@ -47,7 +47,6 @@ export const getallposts=async(dispatch)=>{
 export const postResume=async({name,email,address,phone,role,noProjects,yrExp,linkedIn, personelQ ,desc,profilepic,color,images,education,workexp,services,activities,rewards,certifications,skills},dispatch)=>{
   console.log(personelQ);
     dispatch({type:POST_START})
-    
     let pics=[]
     const imagedata =new FormData();
     imagedata.append("name",'images')
@@ -74,7 +73,7 @@ console.log(pics)
           } catch (err) {
             console.log(err)
           }
-          const userid=localStorage.getItem('userid')
+    const userid=localStorage.getItem('userid')
     const body={
       userId: userid,
       Name: name,

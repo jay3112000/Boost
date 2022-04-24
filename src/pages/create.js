@@ -43,7 +43,7 @@ function Create() {
     useContext(CEResumecontext);
     let history = useHistory();
   const [pics, setpics] = useState([]);
-  const [personelQ, setpersonalQ] = useState(
+  let [personelQ, setpersonalQ] = useState(
     {
       Job: "",
       Strength: "",
@@ -281,6 +281,12 @@ function Create() {
   };
 
   const createcall = async () => {
+    for (var key in personelQ) {
+      if(personelQ[key]===""){
+        personelQ[key]="User has not filled this detail"
+      }
+      console.log('Key: ' + key + '. Value: ' + personelQ[key]);
+  }
     postResume(
       {
         name,
