@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/home"
+  to = "/resume"
+  status = 200
+  force = false
+  query = {path = "resume/62652d62fb1b46b655361e5c"} # apply this rule for /?path=example
